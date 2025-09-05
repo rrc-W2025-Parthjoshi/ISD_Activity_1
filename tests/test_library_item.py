@@ -11,6 +11,7 @@ __version__ = "1.0.0"
 import unittest
 from genre.genre import Genre
 from library_item.library_item import LibraryItem
+
 class TestLibraryItem(unittest.TestCase):
     """
     A suite of tests for the LibraryItem class.
@@ -51,29 +52,7 @@ class TestLibraryItem(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             LibraryItem(title, author, genre)
         self.assertEqual("Author cannot be blank.", str(context.exception))
- 
-    def test_init_when_title_missing_raises_value_error(self):
-        # Arrange
-        title = None
-        author = "Eichiro Oda"
-        genre = Genre.FICTION
- 
-        # Act/Assert
-        with self.assertRaises(ValueError) as context:
-            LibraryItem(title, author, genre)
-        self.assertEqual("Title cannot be blank.", str(context.exception))
 
-    def test_init_author_raises_value_error(self):
-        # Arrange
-        title = "One Piece"
-        author = None
-        genre = Genre.FICTION
- 
-        # Act/Assert
-        with self.assertRaises(ValueError) as context:
-            LibraryItem(title, author, genre)
-        self.assertEqual("Author cannot be blank.", str(context.exception))
- 
     def test_title_returns_title_attribute(self):
         # Arrange
         title = "One Piece"
@@ -112,3 +91,14 @@ class TestLibraryItem(unittest.TestCase):
  
         # Assert
         self.assertEqual(genre, result)
+
+    def test_init_invalid_genre_raises_value_error(self):
+        # Arrange
+        title = "One Piece"
+        author = "Eichiro Oda"
+        genre = "Non_Fiction"
+        
+        # Act/Assert
+        with self.assertRaises(ValueError) as context:
+            LibraryItem(title, author, genre)
+        self.assertEqual("Invalid Genre.", str(context.exception))

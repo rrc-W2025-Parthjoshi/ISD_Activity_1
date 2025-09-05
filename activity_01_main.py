@@ -20,7 +20,7 @@ def main():
     # 1. Code a statement which creates an instance of the LibraryItem class with valid inputs.
     # Use your own unique valid values for the inputs to the class.
     try:
-        item1 = LibraryItem("The Great Gatsby", "F. Scott Fitzgerald", Genre.FICTION)
+        item1 = LibraryItem("One Piece", "Eichiro Oda", Genre.FICTION)
         print("LibraryItem created successfully!")
     except ValueError as e:
         print(f"Error creating LibraryItem: {e}")

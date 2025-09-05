@@ -8,7 +8,7 @@ from genre.genre import Genre
 
 class LibraryItem: 
     """
-    A item in library, such as a book or media resource.
+    An item in the library, Like a book.
 
     Attributes:
         title (str): The title of the item.
@@ -32,10 +32,10 @@ class LibraryItem:
         if author is None or author.strip() == "":
             raise ValueError("Author cannot be blank.")
         if not isinstance(genre,Genre):
-            raise ValueError("Invalid Genre")
-        self._title = title.strip()
-        self._author = author.strip()
-        self._genre = genre
+            raise ValueError("Invalid Genre.")
+        self.__title = title.strip()
+        self.__author = author.strip()
+        self.__genre = genre
 
         
     @property
@@ -44,9 +44,9 @@ class LibraryItem:
         Gets the title of this library item.
  
         Returns:
-            str: The title.
+            str: The title of the item.
         """
-        return self._title
+        return self.__title
     
     @property
     def author(self) -> str:
@@ -54,9 +54,9 @@ class LibraryItem:
         Gets the author of this library item.
  
         Returns:
-            str: The author.
+            str: The author of the item.
         """
-        return self._author
+        return self.__author
     
     @property
     def genre(self) -> Genre:
@@ -64,7 +64,7 @@ class LibraryItem:
         Gets the genre of this library item.
  
         Returns:
-            Genre: The genre.
+            Genre: The genre of the item.
         """
-        return self._genre
+        return self.__genre
     
