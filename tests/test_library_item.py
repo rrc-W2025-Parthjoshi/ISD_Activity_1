@@ -53,6 +53,17 @@ class TestLibraryItem(unittest.TestCase):
             LibraryItem(title, author, genre)
         self.assertEqual("Author cannot be blank.", str(context.exception))
 
+    def test_init_invalid_genre_raises_value_error(self):
+        # Arrange
+        title = "One Piece"
+        author = "Eichiro Oda"
+        genre = "Non_Fiction"
+        
+        # Act/Assert
+        with self.assertRaises(ValueError) as context:
+            LibraryItem(title, author, genre)
+        self.assertEqual("Invalid Genre.", str(context.exception))
+
     def test_title_returns_title_attribute(self):
         # Arrange
         title = "One Piece"
@@ -92,13 +103,4 @@ class TestLibraryItem(unittest.TestCase):
         # Assert
         self.assertEqual(genre, result)
 
-    def test_init_invalid_genre_raises_value_error(self):
-        # Arrange
-        title = "One Piece"
-        author = "Eichiro Oda"
-        genre = "Non_Fiction"
-        
-        # Act/Assert
-        with self.assertRaises(ValueError) as context:
-            LibraryItem(title, author, genre)
-        self.assertEqual("Invalid Genre.", str(context.exception))
+    
