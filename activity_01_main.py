@@ -20,7 +20,7 @@ def main():
     # 1. Code a statement which creates an instance of the LibraryItem class with valid inputs.
     # Use your own unique valid values for the inputs to the class.
     try:
-        item1 = LibraryItem("One Piece", "Eichiro Oda", Genre.FICTION)
+        item1 = LibraryItem(1999,"One Piece", "Eichiro Oda", Genre.FICTION,False)
         print("LibraryItem created successfully!")
     except ValueError as e:
         print(f"Error creating LibraryItem: {e}")
@@ -29,9 +29,11 @@ def main():
     # 2. Using the instance defined above, and the class Accessors, print 
     # each of the attributes of the LibraryItem instance.
     try:
+        print(f"Item ID: {item1.item_id}")
         print(f"Title: {item1.title}")
         print(f"Author: {item1.author}")
-        print(f"Genre: {item1.genre.name}")  # .name prints the enum value as string
+        print(f"Genre: {item1.genre.name}")  
+        print(f"Is Borrowed: {item1.is_borrowed}")
     except Exception as e:
         print(f"Error accessing attributes: {e}")
     
@@ -40,7 +42,7 @@ def main():
     # Use your own unique valid values for the inputs to the class.
     try:
         # Invalid: blank title and invalid genre
-        item2 = LibraryItem("   ", "Unknown Author", "InvalidGenre")
+        item2 = LibraryItem("Non Numeric","   ", "Unknown Author", "InvalidGenre", "YES")
     except ValueError as e:
         print(f"Error creating LibraryItem: {e}")
 
