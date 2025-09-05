@@ -50,46 +50,50 @@ class LibraryItem:
     @property
     def item_id(self) -> int:
         """
+        Returns the unique ID of the library item.
+
         Returns:
-            int: the id num
+            int: TThe library item's ID.
         """
         return self.__item_id
         
     @property
     def title(self) -> str:
         """
-        Gets the title of this library item.
- 
+        Returns the title of the library item.
+
         Returns:
-            str: The title of the item.
+            str: The item's title.
         """
         return self.__title
     
     @property
     def author(self) -> str:
         """
-        Gets the author of this library item.
- 
+        Returns the author of the library item.
+
         Returns:
-            str: The author of the item.
+            str: The item's author.
         """
         return self.__author
     
     @property
     def genre(self) -> Genre:
         """
-        Gets the genre of this library item.
- 
+        Returns the genre of the library item.
+
         Returns:
-            Genre: The genre of the item.
+            Genre: The item's genre.
         """
         return self.__genre
     
     @property
     def is_borrowed(self) -> bool:
         """
+        Returns whether the library item is currently borrowed.
+
         Returns:
-            Boolean: Whether the item is borrowed or not.
+            bool: True if the item is borrowed, otherwise False.
         """
         return self.__is_borrowed
     
